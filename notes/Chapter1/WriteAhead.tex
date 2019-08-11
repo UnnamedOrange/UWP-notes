@@ -1,0 +1,55 @@
+% MIT License
+
+% Copyright (c) 2019 Orange Lee
+
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\section{写在前面}
+
+\subsection{UWP 是什么}
+
+UWP（Universal Windows Platform，通用 Windows 平台）是微软为了让一个应用能在所有 Windows 10 设备运行而设计的平台\cite{UWPbaidu}。为什么要使用 UWP 呢？有以下好处\cite{UWPMS}：
+
+\begin{enumerate}
+    \item 相较 Win32 应用，UWP 应用有权限设置，更安全。
+    \item 在 Windows 10 上通用，即一份代码同时适用于电脑与手机（Windows Phone）。
+    \item 能使用设备的特殊功能，例如手机上的传感器。并且能够轻松应对不同的屏幕尺寸、分辨率及 DPI。
+    \item 能够发布到 Microsoft Store 赚钱。
+    \item 能安全地安装和卸载，永远不会损坏系统文件。
+    \item 能用包括动态磁贴、推送通知、Windows 时间线、微软小娜等方式与用户互动。
+    \item 能用 C\#、C++、VB、Javascript 编写代码；能用 XAML、HTML、DirectX 编写 UI。
+    \item ……
+\end{enumerate}
+
+\subsection{为什么要学 UWP 应用开发呢？}
+
+想学就学！
+
+\section{开发环境}
+
+我们使用最新版本的 Visual Studio 2019，可以在 \href{https://visualstudio.microsoft.com/zh-hans/vs/}{Visual Studio 的官网}上很容易地下载它。推荐使用面向个人开发者免费的 Visual Studio 2019 Community。
+
+在刚才的页面上下载到的实际上是 Visual Studio 2019 的安装器（installer）。由于这个安装器已经设计得很易用了，所以不再阐述它的具体安装过程。我们需要的是名为``通用 Windows 平台开发''的组件，选中即可：
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5\paperwidth]{pic/1.png}
+\end{figure}
+
+但我们\textbf{接下来是用 C++ 而不是 C\# }来开发，因此还需要在右边的多选框中选中``C++ (v142)通用 Windows 平台工具''！
