@@ -92,7 +92,7 @@
 
 还能在不调试的情况下启动程序。方法是在菜单栏中点击``调试''$\rightarrow$``开始执行(不调试)''，或直接按下快捷键 Ctrl + F5。
 
-\subsection{解决方案资源管理器}
+\subsection{解决方案资源管理器}\index{解决方案资源管理器}
 
 解决方案资源管理器窗口是最重要的一个窗口之一。它给出了解决方案中所有项目的所有文件资源。
 \begin{figure}[htbp]
@@ -106,3 +106,52 @@
 目前，不明白每个文件的作用是很正常的事，现在我们也不用完全理解，我们只需要关注于如何写出 Hello World。
 
 \subsection{Hello World 的开发历程}
+
+双击解决方案资源管理器中的``MainPage.xaml''，可以进入如图 \ref{pic10} 所示界面。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5\paperwidth]{pic/10.png}
+    \caption{MainPage.xaml}
+    \label{pic10}
+\end{figure}
+
+很显然这是一个窗口设计器。但可能会让你疑惑的是，当前窗口由两部分组成：上半部分是可视化设计器，下半部分是代码。我们不管这么多，为了尽早完成 Hello World，我们决定使用\textbf{工具箱}\index{工具箱}。
+
+可以通过工具箱为窗口添加\textbf{控件}\index{控件}。这种工作方式在编写 Win32 程序时是很方便的，对于现在而言，我们写 Hello World 时使用工具箱也是很方便的。我们选中名为``TextBlock''的控件，将它拖动到可视化设计器中。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5\paperwidth]{pic/11.png}
+    \caption{拖动 TextBlock 控件至可视化设计器中}
+\end{figure}
+
+可以看见，对于目前设计器的窗口大小而言，我们的 TextBlock 太小了。可以通过\textbf{属性窗口}找到更改这个 TextBlock 大小以及显示的文字的方法。
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.4\paperwidth}
+        \centering
+        \includegraphics[width = 0.3\paperwidth]{pic/12.png}
+        \caption{通过属性窗口更改 TextBlock 的显示内容}
+    \end{minipage}
+    \begin{minipage}[t]{0.4\paperwidth}
+        \centering
+        \includegraphics[width = 0.3\paperwidth]{pic/13.png}
+        \caption{通过属性窗口更改 TextBlock 的字体大小}
+    \end{minipage}
+\end{figure}
+
+最后，将 TextBlock 拖动到可视化设计器的左上角，按下 F5 调试，得到如图 \ref{pic14} 的结果。大功告成！
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5\paperwidth]{pic/14.png}
+    \caption{Hello World！}
+\end{figure}
+
+\subsection{打包我的程序}
+
+可以将你的程序打包成安装包的形式。点击菜单中的``项目''$\rightarrow$``应用商店''$\rightarrow$``创建应用程序包''。
+
+要创建适合发布的安装包，我们将在以后讨论，这里只告诉你一个入口。
+
+\subsection{笔记带有源代码吗？}
+
+有！就在 projects 目录下！
