@@ -1,0 +1,58 @@
+% MIT License
+
+% Copyright (c) 2019 Orange Lee
+
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\section{XML 基础}
+
+为什么是 XML 而不是 XAML 呢？因为正如前面提到的两者的概念，XAML 本身就是一种特殊的 XML。
+
+\subsection{XML 的结构\cite{XMLrunoob1}\cite{XMLrunoob2}\cite{XMLrunoob3}}
+
+XML 文档形成一棵有根树结构。一个 XML 文档\textbf{有且仅有}一个根。
+
+XML 的根结点是一个\emph{元素}\index{XML!元素}。根结点的孩子也是\emph{元素}，例如：
+\begin{lstlisting}[language = xml]
+<root>
+    <child1></child1>
+    <child2></child2>
+</root>
+\end{lstlisting}
+
+一个元素可以像上面的代码一样包含多个元素。除此之外，一个元素还可以拥有一个或多个\emph{属性}\index{XML!属性}。如：
+\begin{lstlisting}[language = xml]
+<root name = "根儿" tips = "こんにちは！">
+    <child1></child1>
+</root>
+\end{lstlisting}
+
+\emph{属性值}\index{XML!属性值}\textbf{必须用引号括起来}，但是却既可以使用单引号又可以使用双引号，这一点上与 Python 是一致的。
+
+一个元素还可以包含\emph{文本}\index{XML!文本}。如：
+\begin{lstlisting}[language = xml]
+<root>
+    <age>20</age>
+    <name>Big Bili Bob</name>
+</root>
+\end{lstlisting}
+
+文本不需要使用引号括起来，除非你想让引号成为数据的一部分。看到上面的代码，你可能会想：要是 Big Bili Bob 住在得克萨斯州（加上一句 <address>Texas</address>），外部程序还能正确处理吗？当然可以，因为它们只负责读取名为 age 和 name 的元素，\textbf{就算有了扩展}，age 和 name 当然也还是能够被正常读取的。
+
+\subsection{XML 的语法\cite{XMLrunoob2}}
