@@ -49,10 +49,91 @@ XML 的根结点是一个\emph{元素}\index{XML!元素}。根结点的孩子也
 \begin{lstlisting}[language = xml]
 <root>
     <age>20</age>
-    <name>Big Bili Bob</name>
+    <name>Big Billy Bob</name>
 </root>
 \end{lstlisting}
 
-文本不需要使用引号括起来，除非你想让引号成为数据的一部分。看到上面的代码，你可能会想：要是 Big Bili Bob 住在得克萨斯州（加上一句 <address>Texas</address>），外部程序还能正确处理吗？当然可以，因为它们只负责读取名为 age 和 name 的元素，\textbf{就算有了扩展}，age 和 name 当然也还是能够被正常读取的。
+文本不需要使用引号括起来，除非你想让引号成为数据的一部分。看到上面的代码，你可能会想：要是 Big Billy Bob 住在得克萨斯州（加上一句 \code{<address>Texas</address>}），外部程序还能正确处理吗？当然可以，因为它们只负责读取名为 \code{age} 和 \code{name} 的元素，\textbf{就算有了扩展}，\code{age} 和 \code{name} 当然也还是能够被正常读取的。
 
 \subsection{XML 的语法\cite{XMLrunoob2}}
+
+\subsubsection{大小写敏感}
+
+XML 是大小写敏感的。
+
+\subsubsection{注释\index{XML!注释}}
+
+XML 的\emph{注释}用 \code{<!--} 和 \code{-->} 包围，如：
+\begin{lstlisting}[language = xml]
+<!-- comment: 初めまして -->
+\end{lstlisting}
+
+\subsubsection{声明\index{XML!声明}}
+
+在文档的第一行，可以加上以下代码：
+\begin{lstlisting}[language = xml]
+<?xml version="1.0" encoding="UTF-8"?>
+\end{lstlisting}
+
+\code{UTF-8} 是 XML 的默认编码，所以可以很放心地写道：XML，初めまして！
+
+\subsubsection{打开标签与关闭标签\index{XML!打开标签}\index{XML!关闭标签}}
+
+我们之前其实已经见过\emph{标签}\index{标签}了。在 XML 中，有一个打开标签（如 \code{<child>}），就一定有一个关闭标签（如 \code{</child>}）。唯一的例外是，上面的\emph{声明}没有关闭标签。
+
+在 XML 中，打开标签和关闭标签必须满足括号的排列规则，例如：
+\begin{lstlisting}[language = xml]
+<p1><p2></p2></p1> <!-- Right -->
+<p1><p2></p1></p2> <!-- WRONG -->
+\end{lstlisting}
+
+XML 还可以使用\emph{自关闭标签}\index{XML!自关闭标签}，例如：
+\begin{lstlisting}[language = xml]
+<p1 attr = "la啦ラ~~~"/>
+\end{lstlisting}
+
+\subsubsection{实体引用\index{XML!实体引用}}
+
+如何在 XML 中输入 \code{<} 作为文本的一部分呢？XML 定义了 5 个\emph{实体引用}。实体引用类似于转义字符，见下表：
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \code{<}  & \code{\&lt;} \\\hline
+        \code{>}  & \code{\&gt;} \\\hline
+        \code{\&} & \code{\&amp;} \\\hline
+        \code{'}  & \code{\&apos;} \\\hline
+        \code{"}  & \code{\&quot;} \\\hline
+    \end{tabular}
+    \caption{XML 实体引用一览}
+\end{table}
+
+\subsection{命名空间\index{XML!命名空间}\cite{XMLrunoob4}}
+
+可以给 XML 指定一个\emph{命名空间（namespace）}，然后通过一个\emph{前缀}访问这个命名空间。参看以下代码（原谅我直接抄了）：
+\begin{lstlisting}[language = xml]
+<root>
+    <h:table xmlns:h="http://www.w3.org/TR/html4/">
+        <h:tr>
+            <h:td>Apples</h:td>
+            <h:td>Bananas</h:td>
+        </h:tr>
+    </h:table>
+</root>
+\end{lstlisting}
+
+命名空间既可以在被使用的地方定义，也可以在根结点定义，其语法是：\code{xmlns:prefix = "URL"}。
+
+命名空间的 URL 是为了给这个命名空间赋予一个独一无二的名称，但很多命名空间都指向一个网页，这个网页可能有些帮助信息。在 XML 文件使用时，这个 URL 不会被访问，仅作为一个标志。
+
+\subsubsection{默认命名空间\index{XML!命名空间!默认命名空间}}
+
+如果你不想使用前缀，但是又想使用命名空间，则可以使用\emph{默认命名空间}。见下例（原谅我直接抄了）：
+\begin{lstlisting}[language = xml]
+<table xmlns="http://www.w3.org/TR/html4/">
+    <tr>
+        <td>Apples</td>
+        <td>Bananas</td>
+    </tr>
+</table>
+\end{lstlisting}
