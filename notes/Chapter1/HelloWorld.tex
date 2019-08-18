@@ -22,10 +22,6 @@
 
 \section{我的第一个 UWP 程序——Hello World}
 
-\subsection{我需要会什么}
-
-我们假设你会基于 ISO C++17 标准的 C++。其余内容，我们会在需要的时候学到。
-
 \subsection{创建项目}
 
 下面给出创建项目的详细步骤。
@@ -38,11 +34,11 @@
         \caption{创建新项目}
     \end{figure}
 
-    \item 选择``空白应用(通用 Windows - C++/CX)''，点击``下一步''。
+    \item 选择``空白应用(通用 Windows)''，点击``下一步''。
     \begin{figure}[htbp]
         \centering
         \includegraphics[width = 0.5\paperwidth]{pic/3.png}
-        \caption{空白应用(通用 Windows - C++/CX)}
+        \caption{空白应用(通用 Windows)}
     \end{figure}
 
     \item 输入项目名称为``Hello World''。将鼠标悬浮在``解决方案名称''旁的信息图标上，可以看到``解决方案是 Visual Studio 中一个或多个项目的容器''。在这里我们只会创建一个项目，因此最好是勾选``将解决方案与项目放在同一目录中''，这样可以减少存放解决方案的文件夹的嵌套，对于小项目来说更便于管理。
@@ -72,19 +68,11 @@
     \caption{Visual Studio 主界面}
 \end{figure}
 
-你可能会注意到在创建项目完成后 VS 立马给你反馈了一些错误信息（如图）。不要担心，这是因为 VS 的 IntelliSense 还在加载；IntelliSense 负责进行代码提示，例如语法错误提示、代码补全等等。注意到状态栏最左侧的平行四边形了吗？如果里面有动画出现，说明正在运行后台任务，而 IntelliSense 的加载便属于其中一员。稍等片刻，便可以看见错误消失，状态栏左侧的平行四边形也没有了动画，点击后会提示你``没有后台任务运行''。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width = 0.75\paperwidth]{pic/7.png}
-    \caption{加载完成后的 Visual Studio 主界面}
-\end{figure}
-
 刚创建好的项目应该可以直接生成（build）并运行。我们尝试点击``{\Large$\triangleright$} 本地计算机''，等待编译完成后，可以看到程序已经运行。
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.75\paperwidth]{pic/8.png}
+    \includegraphics[width = 0.25\paperwidth]{pic/7.png}
     \caption{运行结果}
 \end{figure}
 
@@ -97,22 +85,22 @@
 解决方案资源管理器窗口是最重要的一个窗口之一。它给出了解决方案中所有项目的所有文件资源。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.5\paperwidth]{pic/9.png}
+    \includegraphics[width = 0.5\paperwidth]{pic/8.png}
     \caption{解决方案资源管理器}
 \end{figure}
 
-我们能大致看出这个项目的框架：这个项目使用 pch.cpp、pch.h 这两个文件进行预编译\index{预编译}\footnote{有关预编译的概念及作用，可以在网上搜索。}，这个项目的相关属性在 Package.appxmanifest 中保存\footnote{manifest 是清单的意思，清单一般可以存放应用的相关信息。}，这个项目的``主函数''在 App.xaml 下面的 App.xaml.cpp 中，这个项目有一个类似于窗口的东西，放在 MainPage.xaml 中……
+可以看到，这个项目相当地简单：App.xaml 中应该存在着这个项目的``主函数''、Mainpage.xaml 中应该有一个类似于窗口的东西、项目的相关属性应该保存在 Package.appxmanifest \footnote{manifest 是清单的意思，清单一般可以存放应用的相关信息。}中……
 
-目前，不明白每个文件的作用是很正常的事，现在我们也不用完全理解，我们只需要关注于如何写出 Hello World。
+这只是我们看到这些文件的第一印象，目前，不明白每个文件的作用是很正常的事，现在我们也不用完全理解，我们只需要关注于如何写出 Hello World。
 
 \subsection{Hello World 的开发历程}
 
-双击解决方案资源管理器中的``MainPage.xaml''，可以进入如图 \ref{pic10} 所示界面。
+双击解决方案资源管理器中的``MainPage.xaml''，可以进入如图 \ref{pic9} 所示界面。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.5\paperwidth]{pic/10.png}
+    \includegraphics[width = 0.5\paperwidth]{pic/9.png}
     \caption{MainPage.xaml}
-    \label{pic10}
+    \label{pic9}
 \end{figure}
 
 很显然这是一个窗口设计器。但可能会让你疑惑的是，当前窗口由两部分组成：上半部分是可视化设计器，下半部分是代码。我们不管这么多，为了尽早完成 Hello World，我们决定使用\textbf{工具箱}\index{工具箱}。
@@ -120,7 +108,7 @@
 可以通过工具箱为窗口添加\textbf{控件}\index{控件}。这种工作方式在编写 Win32 程序时是很方便的，对于现在而言，我们写 Hello World 时使用工具箱也是很方便的。我们选中名为``TextBlock''的控件，将它拖动到可视化设计器中。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.5\paperwidth]{pic/11.png}
+    \includegraphics[width = 0.5\paperwidth]{pic/10.png}
     \caption{拖动 TextBlock 控件至可视化设计器中}
 \end{figure}
 
@@ -129,22 +117,22 @@
     \centering
     \begin{minipage}[t]{0.4\paperwidth}
         \centering
-        \includegraphics[width = 0.3\paperwidth]{pic/12.png}
+        \includegraphics[width = 0.3\paperwidth]{pic/11.png}
         \caption{通过属性窗口更改 TextBlock 的显示内容}
     \end{minipage}
     \begin{minipage}[t]{0.4\paperwidth}
         \centering
-        \includegraphics[width = 0.3\paperwidth]{pic/13.png}
+        \includegraphics[width = 0.3\paperwidth]{pic/12.png}
         \caption{通过属性窗口更改 TextBlock 的字体大小}
     \end{minipage}
 \end{figure}
 
-最后，将 TextBlock 拖动到可视化设计器的左上角，按下 F5 调试，得到如图 \ref{pic14} 的结果。大功告成！
+最后，将 TextBlock 拖动到可视化设计器的左上角，按下 F5 调试，得到如图 \ref{pic13} 的结果。大功告成！
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.5\paperwidth]{pic/14.png}
+    \includegraphics[width = 0.5\paperwidth]{pic/13.png}
     \caption{Hello World！}
-    \label{pic14}
+    \label{pic13}
 \end{figure}
 
 \subsection{打包我的程序}
@@ -155,4 +143,4 @@
 
 \subsection{笔记带有源代码吗？}
 
-有！就在 UWP projects 目录下！
+在根目录下，有一个 projects 文件夹，里面附带了部分可能有价值的源代码。你可以自由地使用那些（projects 文件夹下的）源代码。

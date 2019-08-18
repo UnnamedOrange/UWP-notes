@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="ed700e44-0c95-420c-90a8-13ff12a93890"
+    Name="44ca3603-d549-4c7a-aa28-eaee47b31476"
     Publisher="CN=lyche"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ed700e44-0c95-420c-90a8-13ff12a93890" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="44ca3603-d549-4c7a-aa28-eaee47b31476" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>1 - Hello World</DisplayName>
