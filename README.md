@@ -1,2 +1,1 @@
-# UWP notes
- Notes for UWP apps developing
+仅用作 LaTeX 参考文档。
